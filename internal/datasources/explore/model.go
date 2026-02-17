@@ -5,11 +5,11 @@ import (
 )
 
 type ExploreDataSourceModel struct {
-	Query  types.String         `tfsdk:"query"`
-	Tag    types.String         `tfsdk:"tag"`
-	Type   types.String         `tfsdk:"type"`
-	Sort   types.String         `tfsdk:"sort"`
-	Skills []ExploreSkillModel  `tfsdk:"skills"`
+	Query  types.String        `tfsdk:"query"`
+	Tag    types.String        `tfsdk:"tag"`
+	Type   types.String        `tfsdk:"type"`
+	Sort   types.String        `tfsdk:"sort"`
+	Skills []ExploreSkillModel `tfsdk:"skills"`
 }
 
 type ExploreSkillModel struct {

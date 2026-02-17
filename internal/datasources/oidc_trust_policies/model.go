@@ -5,7 +5,7 @@ import (
 )
 
 type OidcTrustPoliciesModel struct {
-	TenantID types.String              `tfsdk:"tenant_id"`
+	TenantID types.String               `tfsdk:"tenant_id"`
 	Policies []OidcTrustPolicyItemModel `tfsdk:"policies"`
 }
 

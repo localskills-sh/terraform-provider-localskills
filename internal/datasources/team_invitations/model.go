@@ -5,8 +5,8 @@ import (
 )
 
 type TeamInvitationsDataSourceModel struct {
-	TenantID    types.String       `tfsdk:"tenant_id"`
-	Invitations []InvitationModel  `tfsdk:"invitations"`
+	TenantID    types.String      `tfsdk:"tenant_id"`
+	Invitations []InvitationModel `tfsdk:"invitations"`
 }
 
 type InvitationModel struct {

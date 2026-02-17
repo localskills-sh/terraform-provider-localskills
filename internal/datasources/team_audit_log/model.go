@@ -5,11 +5,11 @@ import (
 )
 
 type TeamAuditLogModel struct {
-	TenantID types.String        `tfsdk:"tenant_id"`
-	Page     types.Int64         `tfsdk:"page"`
-	Limit    types.Int64         `tfsdk:"limit"`
-	Action   types.String        `tfsdk:"action"`
-	Total    types.Int64         `tfsdk:"total"`
+	TenantID types.String         `tfsdk:"tenant_id"`
+	Page     types.Int64          `tfsdk:"page"`
+	Limit    types.Int64          `tfsdk:"limit"`
+	Action   types.String         `tfsdk:"action"`
+	Total    types.Int64          `tfsdk:"total"`
 	Entries  []AuditLogEntryModel `tfsdk:"entries"`
 }
 
