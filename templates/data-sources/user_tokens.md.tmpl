@@ -1,0 +1,18 @@
+---
+page_title: "localskills_user_tokens Data Source - terraform-provider-localskills"
+subcategory: "Tokens"
+description: |-
+  Lists the authenticated user's API tokens.
+---
+
+# localskills_user_tokens (Data Source)
+
+Lists all API tokens belonging to the authenticated user. Token secret values are not included in the response; only metadata such as name, creation date, and last-used timestamp is returned.
+
+Use this data source to audit existing tokens, check expiration dates, or verify token inventory before creating new ones.
+
+## Example Usage
+
+{{ tffile "examples/data-sources/localskills_user_tokens/data-source.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}

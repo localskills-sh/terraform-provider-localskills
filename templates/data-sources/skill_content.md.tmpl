@@ -1,0 +1,18 @@
+---
+page_title: "localskills_skill_content Data Source - terraform-provider-localskills"
+subcategory: "Skills"
+description: |-
+  Fetches the actual content of a skill at a specific version.
+---
+
+# localskills_skill_content (Data Source)
+
+Fetches the actual content of a skill, optionally at a specific version. Supports exact version number, exact semantic version, or semver range queries.
+
+Use this data source to retrieve skill content for use in other resources or to inspect content at a particular version. When no version parameters are specified, the latest version is returned.
+
+## Example Usage
+
+{{ tffile "examples/data-sources/localskills_skill_content/data-source.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}

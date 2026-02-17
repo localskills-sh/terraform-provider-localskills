@@ -1,0 +1,18 @@
+---
+page_title: "localskills_oidc_trust_policies Data Source - terraform-provider-localskills"
+subcategory: "Enterprise"
+description: |-
+  Lists OIDC trust policies configured for a team.
+---
+
+# localskills_oidc_trust_policies (Data Source)
+
+Lists all OIDC trust policies configured for a team. Each policy defines which CI/CD pipelines can authenticate using OpenID Connect tokens and which skills they can access.
+
+Use this data source to audit trust policies, verify CI/CD access configurations, or reference existing policies in other parts of your Terraform configuration.
+
+## Example Usage
+
+{{ tffile "examples/data-sources/localskills_oidc_trust_policies/data-source.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}

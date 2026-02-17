@@ -1,0 +1,18 @@
+---
+page_title: "localskills_teams Data Source - terraform-provider-localskills"
+subcategory: "Teams"
+description: |-
+  Lists all teams accessible to the authenticated user.
+---
+
+# localskills_teams (Data Source)
+
+Lists all teams (tenants) accessible to the authenticated user, including the user's role in each team.
+
+Use this data source to enumerate available teams for multi-team configurations or to dynamically reference team IDs based on the authenticated user's memberships.
+
+## Example Usage
+
+{{ tffile "examples/data-sources/localskills_teams/data-source.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}

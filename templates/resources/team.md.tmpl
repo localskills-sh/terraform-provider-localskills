@@ -1,0 +1,30 @@
+---
+page_title: "localskills_team Resource - terraform-provider-localskills"
+subcategory: "Teams"
+description: |-
+  Manages a team (tenant) on the localskills.sh platform.
+---
+
+# localskills_team (Resource)
+
+Manages a team (also referred to as a tenant) on [localskills.sh](https://localskills.sh). Teams are the organizational unit that owns skills, tokens, and enterprise configurations.
+
+The `slug` attribute is auto-generated from the team name but can be customized by setting it explicitly. The slug is used in URLs and must be unique across the platform.
+
+The `description` attribute is optional and can be updated at any time along with the team `name` and `slug`.
+
+~> **Important:** Deleting this resource removes the team from Terraform state only. The team is **not** deleted from localskills.sh because the platform API does not provide a delete endpoint for teams. To fully remove a team, contact localskills.sh support.
+
+## Example Usage
+
+{{ tffile "examples/resources/localskills_team/resource.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}
+
+## Import
+
+Import a team using its unique identifier:
+
+```sh
+terraform import localskills_team.example <team_id>
+```

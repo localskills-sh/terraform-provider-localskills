@@ -1,0 +1,18 @@
+---
+page_title: "localskills_skill_manifest Data Source - terraform-provider-localskills"
+subcategory: "Skills"
+description: |-
+  Retrieves the package manifest for a package-format skill.
+---
+
+# localskills_skill_manifest (Data Source)
+
+Retrieves the package manifest for a package-format skill (ZIP archives with multiple files). Returns the manifest name, description, version, and list of files in the package.
+
+Use this data source to inspect the contents of a multi-file skill package or verify its structure before deployment.
+
+## Example Usage
+
+{{ tffile "examples/data-sources/localskills_skill_manifest/data-source.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}

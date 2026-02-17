@@ -1,0 +1,18 @@
+---
+page_title: "localskills_team_audit_log Data Source - terraform-provider-localskills"
+subcategory: "User"
+description: |-
+  Retrieves a team's audit log with actor information.
+---
+
+# localskills_team_audit_log (Data Source)
+
+Retrieves a team's audit log with actor information and optional filtering by action type. Supports pagination with page and limit parameters. Each entry includes the actor's identity and the affected resource.
+
+Use this data source to audit team activity, track member changes, monitor skill publications, or build compliance reports.
+
+## Example Usage
+
+{{ tffile "examples/data-sources/localskills_team_audit_log/data-source.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}

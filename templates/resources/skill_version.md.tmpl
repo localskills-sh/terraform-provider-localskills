@@ -1,0 +1,30 @@
+---
+page_title: "localskills_skill_version Resource - terraform-provider-localskills"
+subcategory: "Skills"
+description: |-
+  Creates an immutable versioned snapshot of skill content.
+---
+
+# localskills_skill_version (Resource)
+
+Creates an immutable version of a skill's content on [localskills.sh](https://localskills.sh). Skill versions provide a versioned history of changes, enabling rollback and auditability.
+
+All user-settable fields on this resource are immutable. Changing any attribute -- `skill_id`, `content`, `message`, `semver`, or `bump` -- will destroy the existing version and create a new one (replacement).
+
+Version numbering can be controlled in two ways: set an explicit `semver` string (e.g., `"2.0.0"`), or use the `bump` attribute to automatically increment the semantic version by `major`, `minor`, or `patch`. These two approaches are mutually exclusive; do not set both.
+
+When this resource is destroyed and the version being deleted is the latest version of the skill, the provider automatically reverts the skill to the previous version. This ensures the skill always has valid content.
+
+## Example Usage
+
+{{ tffile "examples/resources/localskills_skill_version/resource.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}
+
+## Import
+
+Import a skill version using the skill ID and version number separated by a slash:
+
+```sh
+terraform import localskills_skill_version.example <skill_id>/<version_number>
+```

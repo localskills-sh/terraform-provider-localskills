@@ -1,0 +1,30 @@
+---
+page_title: "localskills_skill Resource - terraform-provider-localskills"
+subcategory: "Skills"
+description: |-
+  Manages a skill or rule on the localskills.sh platform.
+---
+
+# localskills_skill (Resource)
+
+Manages a skill on the [localskills.sh](https://localskills.sh) platform. Skills are the core content unit -- they contain instructions, guidelines, or rules that can be shared across teams and tools.
+
+Each skill has a `type` of either `skill` (general-purpose instructional content) or `rule` (enforceable policy content). The type is set at creation and cannot be changed afterward; modifying it forces resource replacement.
+
+Visibility controls who can discover and use the skill: `public` skills appear in the explore feed, `private` skills are only accessible to team members, and `unlisted` skills are accessible by direct link but not listed publicly.
+
+The `content` attribute sets the initial content when the skill is created. To publish updates after creation, use the `localskills_skill_version` resource to create new versions. The `slug` is auto-generated from the skill name and is used in URLs. Tags are limited to 5 per skill with a maximum of 50 characters each. Content has a maximum size of 512 KB.
+
+## Example Usage
+
+{{ tffile "examples/resources/localskills_skill/resource.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}
+
+## Import
+
+Import a skill using its internal ID:
+
+```sh
+terraform import localskills_skill.example <skill_id>
+```

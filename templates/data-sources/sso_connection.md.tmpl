@@ -1,0 +1,18 @@
+---
+page_title: "localskills_sso_connection Data Source - terraform-provider-localskills"
+subcategory: "Enterprise"
+description: |-
+  Retrieves the SSO/SAML configuration for a team.
+---
+
+# localskills_sso_connection (Data Source)
+
+Retrieves the SSO/SAML connection configuration for a team, including the IdP and SP metadata, enabled status, default role, and email domain restrictions.
+
+Use this data source to inspect SSO settings, retrieve Service Provider URLs for IdP configuration, or verify that SSO is correctly enabled for a team.
+
+## Example Usage
+
+{{ tffile "examples/data-sources/localskills_sso_connection/data-source.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}

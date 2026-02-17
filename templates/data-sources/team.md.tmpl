@@ -1,0 +1,18 @@
+---
+page_title: "localskills_team Data Source - terraform-provider-localskills"
+subcategory: "Teams"
+description: |-
+  Retrieves a single team by ID or slug.
+---
+
+# localskills_team (Data Source)
+
+Retrieves a single team (tenant) by ID or slug, including the team name, description, and the authenticated user's role.
+
+Use this data source to look up a team when you know its slug or ID, for example to pass the team ID to other resources. At least one of `team_id` or `slug` must be specified.
+
+## Example Usage
+
+{{ tffile "examples/data-sources/localskills_team/data-source.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}

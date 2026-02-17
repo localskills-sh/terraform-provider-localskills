@@ -1,0 +1,18 @@
+---
+page_title: "localskills_team_tokens Data Source - terraform-provider-localskills"
+subcategory: "Tokens"
+description: |-
+  Lists a team's API tokens.
+---
+
+# localskills_team_tokens (Data Source)
+
+Lists all API tokens for a team. Token secret values are not included; only metadata such as name, creator, creation date, and last-used timestamp is returned. Requires owner or admin role on the team.
+
+Use this data source to audit team tokens, identify unused or expiring tokens, or verify CI/CD token inventory.
+
+## Example Usage
+
+{{ tffile "examples/data-sources/localskills_team_tokens/data-source.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}

@@ -1,0 +1,30 @@
+---
+page_title: "localskills_sso_connection Resource - terraform-provider-localskills"
+subcategory: "Enterprise"
+description: |-
+  Manages the SAML SSO connection for a team.
+---
+
+# localskills_sso_connection (Resource)
+
+Manages the SAML SSO connection for a team on [localskills.sh](https://localskills.sh). This is a singleton resource -- each team has at most one SSO connection. The resource configures how team members authenticate using an external identity provider (IdP) such as Okta, Azure AD, or Google Workspace.
+
+Both create and update operations use the same underlying API endpoint (PATCH). The provider treats the SSO configuration as an upsert: if no SSO connection exists it will be created, and if one already exists it will be updated.
+
+At least one of `metadata_url` or `metadata_xml` must be provided. The `metadata_url` points to the IdP's metadata endpoint for automatic configuration, while `metadata_xml` allows providing the raw SAML metadata directly. The `email_domains` attribute restricts which email domains can use SSO to sign in.
+
+~> **Note:** Deleting this resource does not remove the SSO connection. Instead, it disables SSO by setting `enabled` and `require_sso` to `false`. To fully reconfigure SSO, create a new `localskills_sso_connection` resource.
+
+## Example Usage
+
+{{ tffile "examples/resources/localskills_sso_connection/resource.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}
+
+## Import
+
+Import an SSO connection using the tenant ID only (since SSO is a singleton per team):
+
+```sh
+terraform import localskills_sso_connection.example <tenant_id>
+```

@@ -1,0 +1,18 @@
+---
+page_title: "localskills_team_invitations Data Source - terraform-provider-localskills"
+subcategory: "Teams"
+description: |-
+  Lists pending team invitations.
+---
+
+# localskills_team_invitations (Data Source)
+
+Lists all invitations for a team, including pending, accepted, and expired invitations. Each invitation includes the email, role, and expiration details.
+
+Use this data source to audit outstanding invitations, verify invitation status, or build reports on team onboarding progress.
+
+## Example Usage
+
+{{ tffile "examples/data-sources/localskills_team_invitations/data-source.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}

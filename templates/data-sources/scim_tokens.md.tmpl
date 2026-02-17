@@ -1,0 +1,18 @@
+---
+page_title: "localskills_scim_tokens Data Source - terraform-provider-localskills"
+subcategory: "Tokens"
+description: |-
+  Lists SCIM provisioning tokens for a team.
+---
+
+# localskills_scim_tokens (Data Source)
+
+Lists all SCIM provisioning tokens for a team. Token secret values are not included; only metadata such as name, creation date, and last-used timestamp is returned.
+
+Use this data source to audit SCIM tokens, check expiration dates, or verify that provisioning tokens are active and in use.
+
+## Example Usage
+
+{{ tffile "examples/data-sources/localskills_scim_tokens/data-source.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}

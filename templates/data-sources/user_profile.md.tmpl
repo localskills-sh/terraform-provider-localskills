@@ -1,0 +1,18 @@
+---
+page_title: "localskills_user_profile Data Source - terraform-provider-localskills"
+subcategory: "User"
+description: |-
+  Retrieves the authenticated user's profile.
+---
+
+# localskills_user_profile (Data Source)
+
+Retrieves the authenticated user's profile including username, display name, email address, avatar image URL, and bio.
+
+Use this data source to reference the current user's identity in other resources or to display profile information in outputs.
+
+## Example Usage
+
+{{ tffile "examples/data-sources/localskills_user_profile/data-source.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}

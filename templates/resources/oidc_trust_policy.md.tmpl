@@ -1,0 +1,30 @@
+---
+page_title: "localskills_oidc_trust_policy Resource - terraform-provider-localskills"
+subcategory: "Enterprise"
+description: |-
+  Configures an OIDC trust policy for CI/CD token exchange.
+---
+
+# localskills_oidc_trust_policy (Resource)
+
+Manages an OIDC trust policy for a team on [localskills.sh](https://localskills.sh). OIDC trust policies enable CI/CD pipelines to authenticate with localskills.sh without storing long-lived API tokens.
+
+The authentication flow works as follows: a CI/CD system (GitHub Actions or GitLab CI) issues an OIDC JWT during a pipeline run. The pipeline exchanges this JWT at the localskills.sh token exchange endpoint for a short-lived API token (valid for 1 hour). The trust policy defines which repositories, Git refs, and environments are authorized to perform this exchange.
+
+The `ref_filter` attribute accepts glob patterns for matching Git references. For example, `refs/heads/main` restricts access to the main branch, while `refs/tags/*` allows any tag. The default value `*` matches all refs. The `environment_filter` attribute can restrict access to specific deployment environments (e.g., `production`).
+
+The `skill_ids` attribute restricts which skills the exchanged token can access. When set to `null` (omitted), the token can access all skills owned by the team. Each team can have a maximum of 20 OIDC trust policies.
+
+## Example Usage
+
+{{ tffile "examples/resources/localskills_oidc_trust_policy/resource.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}
+
+## Import
+
+Import an OIDC trust policy using the tenant ID and policy ID separated by a slash:
+
+```sh
+terraform import localskills_oidc_trust_policy.example <tenant_id>/<policy_id>
+```

@@ -1,0 +1,18 @@
+---
+page_title: "localskills_skill_versions Data Source - terraform-provider-localskills"
+subcategory: "Skills"
+description: |-
+  Lists all published versions of a skill.
+---
+
+# localskills_skill_versions (Data Source)
+
+Lists all published versions of a skill, including version numbers, semantic versions, content hashes, and creation timestamps.
+
+Use this data source to audit version history, find specific releases, or determine the latest version of a skill. Each version entry includes the commit message and file count.
+
+## Example Usage
+
+{{ tffile "examples/data-sources/localskills_skill_versions/data-source.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}

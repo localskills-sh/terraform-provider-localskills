@@ -1,0 +1,30 @@
+---
+page_title: "localskills_team_token Resource - terraform-provider-localskills"
+subcategory: "Tokens"
+description: |-
+  Manages a team-scoped API token.
+---
+
+# localskills_team_token (Resource)
+
+Manages a team-scoped API token on [localskills.sh](https://localskills.sh). Team tokens authenticate API requests on behalf of a team and are scoped to the resources owned by that team.
+
+All user-settable fields (`tenant_id`, `name`, `expires_in_days`) are immutable. Changing any of these attributes forces resource replacement (the existing token is revoked and a new one is created).
+
+The optional `expires_in_days` attribute sets the token lifetime. If omitted, the token does not expire. Each team can have a maximum of 25 tokens. Token values follow the format `lsk_` followed by 64 hexadecimal characters.
+
+~> **Critical:** The `token_value` attribute is only available at creation time. The API does not return the raw token value on subsequent reads. If your Terraform state is lost, the token value cannot be recovered and you must create a new token. Store your Terraform state securely (e.g., using an encrypted remote backend). Importing an existing token will **not** recover the `token_value`.
+
+## Example Usage
+
+{{ tffile "examples/resources/localskills_team_token/resource.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}
+
+## Import
+
+Import a team token using the tenant ID and token ID separated by a slash. Note that the `token_value` will not be populated after import.
+
+```sh
+terraform import localskills_team_token.example <tenant_id>/<token_id>
+```

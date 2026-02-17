@@ -1,0 +1,33 @@
+---
+page_title: "Provider: Localskills"
+description: |-
+  The Localskills provider manages resources on the localskills.sh skill sharing platform.
+---
+
+# Localskills Provider
+
+The Localskills provider is used to manage resources on [localskills.sh](https://localskills.sh), a multi-tenant skill sharing platform. With this provider you can define skills and rules, publish versioned content, manage teams and membership, issue API tokens, configure OIDC trust policies for CI/CD pipelines, and set up enterprise SAML SSO and SCIM provisioning -- all as Terraform-managed infrastructure.
+
+Use this provider to codify your organization's skill library and access controls. Teams can collaborate on shared skills while Terraform ensures that configuration stays consistent, auditable, and reproducible across environments.
+
+## Example Usage
+
+{{ tffile "examples/provider/provider.tf" }}
+
+## Authentication
+
+The provider requires an API token to authenticate with the localskills.sh API. Tokens follow the format `lsk_` followed by 64 hexadecimal characters.
+
+You can obtain a token from your localskills.sh account settings or by creating one with the `localskills_user_token` or `localskills_team_token` resources.
+
+The recommended approach is to set the `LOCALSKILLS_API_TOKEN` environment variable:
+
+```sh
+export LOCALSKILLS_API_TOKEN="lsk_your_token_here"
+```
+
+Alternatively, you can set the `api_token` attribute directly in the provider block. Avoid hard-coding tokens in version-controlled files; use Terraform variables or a secrets manager instead.
+
+The `base_url` defaults to `https://localskills.sh` and can be overridden with the `LOCALSKILLS_BASE_URL` environment variable or the `base_url` provider attribute for self-hosted or staging environments.
+
+{{ .SchemaMarkdown | trimspace }}

@@ -1,0 +1,30 @@
+---
+page_title: "localskills_team_invitation Resource - terraform-provider-localskills"
+subcategory: "Teams"
+description: |-
+  Sends an invitation for a user to join a team.
+---
+
+# localskills_team_invitation (Resource)
+
+Sends an invitation to a user to join a team on [localskills.sh](https://localskills.sh). The invited user receives an email with a link to accept the invitation.
+
+All user-settable fields on this resource are immutable. Changing `tenant_id`, `email`, or `role` will destroy the existing invitation and create a new one (replacement). Invitations expire after 7 days from creation.
+
+The `role` attribute determines the permissions granted to the invited user. Available roles are `owner`, `admin`, `member`, and `viewonly`. Only users with the `owner` role can invite other users as `owner`.
+
+~> **Note:** Deleting this resource removes the invitation from Terraform state only. There is no API endpoint to revoke a pending invitation. The invitation will expire naturally after 7 days if not accepted.
+
+## Example Usage
+
+{{ tffile "examples/resources/localskills_team_invitation/resource.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}
+
+## Import
+
+Import a team invitation using the tenant ID and invitation ID separated by a slash:
+
+```sh
+terraform import localskills_team_invitation.example <tenant_id>/<invitation_id>
+```

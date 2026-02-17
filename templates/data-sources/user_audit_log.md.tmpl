@@ -1,0 +1,18 @@
+---
+page_title: "localskills_user_audit_log Data Source - terraform-provider-localskills"
+subcategory: "User"
+description: |-
+  Retrieves the authenticated user's personal audit log.
+---
+
+# localskills_user_audit_log (Data Source)
+
+Retrieves the authenticated user's personal audit log with optional filtering by action type. Supports pagination with page and limit parameters.
+
+Use this data source to review recent account activity, audit security-relevant actions, or build compliance reports for the authenticated user.
+
+## Example Usage
+
+{{ tffile "examples/data-sources/localskills_user_audit_log/data-source.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}

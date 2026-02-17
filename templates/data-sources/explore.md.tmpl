@@ -1,0 +1,18 @@
+---
+page_title: "localskills_explore Data Source - terraform-provider-localskills"
+subcategory: "Skills"
+description: |-
+  Browses publicly available skills on localskills.sh.
+---
+
+# localskills_explore (Data Source)
+
+Browses publicly available skills on localskills.sh with search, tag filtering, type filtering, and sorting options. Sort by newest, recently updated, or most downloads.
+
+Use this data source to discover community skills, find popular rules, or search for skills by keyword. Results include author information and download counts.
+
+## Example Usage
+
+{{ tffile "examples/data-sources/localskills_explore/data-source.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}

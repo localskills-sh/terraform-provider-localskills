@@ -1,0 +1,18 @@
+---
+page_title: "localskills_skills Data Source - terraform-provider-localskills"
+subcategory: "Skills"
+description: |-
+  Lists skills with optional filters for tenant, visibility, type, search query, and tags.
+---
+
+# localskills_skills (Data Source)
+
+Lists skills with optional filters for tenant, visibility, type, search query, and tags. Returns a list of skills matching the specified criteria.
+
+Use this data source to discover skills across teams, audit skill inventories, or find skills by tag or type. All filter parameters are optional; omitting all filters returns all accessible skills.
+
+## Example Usage
+
+{{ tffile "examples/data-sources/localskills_skills/data-source.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}
