@@ -17,7 +17,7 @@ var TestAccProtoV6ProviderFactories = map[string]func() (tfprotov6.ProviderServe
 
 func TestAccPreCheck(t *testing.T) {
 	if v := os.Getenv("LOCALSKILLS_API_TOKEN"); v == "" {
-		t.Fatal("LOCALSKILLS_API_TOKEN must be set for acceptance tests")
+		t.Skip("LOCALSKILLS_API_TOKEN must be set for acceptance tests")
 	}
 }
 
